@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mahwah Electric Landscaping Survey</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #edf7ed;
+    color: #2e2e2e;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 650px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #2e7d32;
+  }
+  .question {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+  .question.active {
+    display: block;
+  }
+  label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    accent-color: #388e3c;
+    margin-right: 6px;
+  }
+  textarea, input[type="email"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+  }
+ .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+  }
+  button {
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .next-btn {
+    background: #43a047;
+    color: #fff;
+  }
+  .next-btn:hover {
+    background: #2e7d32;
+  }
+  .back-btn {
+    background: #bdbdbd;
+    color: #fff;
+  }
+  .back-btn:hover {
+    background: #9e9e9e;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Mahwah Electric Landscaping Survey</h1>
+  <p style="text-align:center;color:#555;">We're exploring interest in quiet, eco-friendly <strong>electric landscaping services</strong> for homeowners in Mahwah, New Jersey. This short 10-question survey takes about 3 minutes. Your input helps us build a greener, quieter community near you!
+</p>
+
+  <form id="surveyForm" action="https://formspree.io/f/xwprapdq" method="POST">
+
+    <!-- Question 1 -->
+    <div class="question active" id="q1">
+      <label><strong>1. Do you currently use a landscaping or lawn care service?</strong></label>
+      <label><input type="radio" name="q1" value="Yes" /> Yes</label>
+      <label><input type="radio" name="q1" value="No" /> No</label>
+       <div class="nav-buttons" style="justify-content: flex-end;">
+        <button type="button" class="next-btn" onclick="nextQuestion('q1')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 2a -->
+    <div class="question" id="q2a">
+      <label><strong>2. How satisfied are you with your current landscaping service?</strong></label>
+      <label><input type="radio" name="q2a" value="Very satisfied" /> Very satisfied</label>
+      <label><input type="radio" name="q2a" value="Somewhat satisfied" /> Somewhat satisfied</label>
+      <label><input type="radio" name="q2a" value="Neutral" /> Neutral</label>
+      <label><input type="radio" name="q2a" value="Not satisfied" /> Not satisfied</label>
+     <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q2a')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 2b -->
+    <div class="question" id="q2b">
+      <label><strong>2. What is the main reason you do not use a landscaping service?</strong></label>
+      <label><input type="radio" name="q2b" value="Too expensive" /> Too expensive</label>
+      <label><input type="radio" name="q2b" value="Prefer to do it myself" /> Prefer to do it myself</label>
+      <label><input type="radio" name="q2b" value="Don’t trust providers" /> Don’t trust providers</label>
+      <label><input type="radio" name="q2b" value="Environmental impact" /> Environmental impact</label>
+      <label><input type="radio" name="q2b" value="Don’t need one" /> Don’t need one</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q2b')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question" id="q3">
+      <label><strong>3. How important to you is reducing environmental impact (gas emissions) from landscaping?</strong></label>
+      <label><input type="radio" name="q3" value="Very important" /> Very important</label>
+      <label><input type="radio" name="q3" value="Somewhat important" /> Somewhat important</label>
+      <label><input type="radio" name="q3" value="Not important" /> Not important</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q3')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question" id="q4">
+      <label><strong>4. How important to you is using eco-friendly or sustainable services to you?</strong></label>
+      <label><input type="radio" name="q4" value="Very important" /> Very important</label>
+      <label><input type="radio" name="q4" value="Somewhat important" /> Somewhat important</label>
+      <label><input type="radio" name="q4" value="Not important" /> Not important</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q4')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question" id="q5">
+      <label><strong>5. How appealing is quiet, zero-emission landscaping compared to gas-powered?</strong></label>
+      <label><input type="radio" name="q5" value="Much more appealing" /> Much more appealing</label>
+      <label><input type="radio" name="q5" value="Somewhat more appealing" /> Somewhat more appealing</label>
+      <label><input type="radio" name="q5" value="About the same" /> About the same</label>
+      <label><input type="radio" name="q5" value="Less appealing" /> Less appealing</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q5')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question" id="q6">
+      <label><strong>6. Would you consider using a lawncare company that uses all-electric equipment?</strong></label>
+      <label><input type="radio" name="q6" value="Definitely" /> Definitely</label>
+      <label><input type="radio" name="q6" value="Probably" /> Probably</label>
+      <label><input type="radio" name="q6" value="Maybe" /> Maybe</label>
+      <label><input type="radio" name="q6" value="No" /> No</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q6')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 7a -->
+    <div class="question" id="q7a">
+      <label><strong>7. What benefits of electric landscaping matter most to you?</strong></label>
+      <label><input type="checkbox" name="q7a" value="Quieter operation" /> Quieter operation</label>
+      <label><input type="checkbox" name="q7a" value="Cleaner air" /> Cleaner air</label>
+      <label><input type="checkbox" name="q7a" value="Lower emissions" /> Lower emissions</label>
+      <label><input type="checkbox" name="q7a" value="Eco-friendly company" /> Eco-friendly company</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q7a')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 7b -->
+    <div class="question" id="q7b">
+      <label><strong>7. What concerns (if any) do you have about using an electric landscaping service?</strong></label>
+      <label><input type="checkbox" name="q7b" value="Too expensive" /> Too expensive</label>
+      <label><input type="checkbox" name="q7b" value="Don’t see value" /> Don’t see value</label>
+      <label><input type="checkbox" name="q7b" value="Unsure of performance" /> Unsure of performance</label>
+      <label><input type="checkbox" name="q7b" value="Other" /> Other</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q7b')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question" id="q8">
+      <label><strong>8. How often do you need landscaping or yard maintenance?</strong></label>
+      <label><input type="radio" name="q8" value="Weekly" /> Weekly</label>
+      <label><input type="radio" name="q8" value="Bi-weekly" /> Bi-weekly</label>
+      <label><input type="radio" name="q8" value="Monthly" /> Monthly</label>
+      <label><input type="radio" name="q8" value="Seasonally" /> Seasonally</label>
+      <label><input type="radio" name="q8" value="Rarely" /> Rarely</label>
+      <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q8')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div class="question" id="q9">
+      <label><strong>9. How likely are you to try an electric landscaping service if available in Mahwah, New Jersey?</strong></label>
+      <label><input type="radio" name="q9" value="Very likely" /> Very likely</label>
+      <label><input type="radio" name="q9" value="Somewhat likely" /> Somewhat likely</label>
+      <label><input type="radio" name="q9" value="Unsure" /> Unsure</label>
+      <label><input type="radio" name="q9" value="Unlikely" /> Unlikely</label>
+     <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="button" class="next-btn" onclick="nextQuestion('q9')">Next</button>
+      </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question" id="q10">
+      <label><strong>10. Would you like to be notified when electric landscaping services are available in Mahwah, New Jersey?</strong></label>
+      <label><input type="radio" name="q10" value="Yes Please!" /> Yes Please!</label>
+      <label><input type="radio" name="q10" value="No Thank You!" /> No Thank You!</label>
+
+      <label><strong>Comments or suggestions (optional):</strong></label>
+      <textarea name="comments" rows="3" placeholder="Share your thoughts..."></textarea>
+
+      <label><strong>Email (optional):</strong></label>
+      <input type="email" name="email" placeholder="Enter your email for updates" />
+
+       <div class="nav-buttons">
+        <button type="button" class="back-btn" onclick="previousQuestion()">Back</button>
+        <button type="submit" class="next-btn">Submit</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<script>
+let historyStack = [];
+
+function nextQuestion(currentId) {
+  const current = document.getElementById(currentId);
+  const answer = document.querySelector(`input[name="${currentId}"]:checked`);
+  let nextId;
+
+  switch(currentId) {
+    case 'q1':
+      if (answer && answer.value === 'Yes') nextId = 'q2a';
+      else if (answer && answer.value === 'No') nextId = 'q2b';
+      break;
+    case 'q2a':
+    case 'q2b':
+      nextId = 'q3'; break;
+    case 'q3':
+      nextId = 'q4'; break;
+    case 'q4':
+      nextId = 'q5'; break;
+    case 'q5':
+      nextId = 'q6'; break;
+    case 'q6':
+      if (answer && answer.value === 'No') nextId = 'q7b';
+      else nextId = 'q7a';
+      break;
+    case 'q7a':
+    case 'q7b':
+      nextId = 'q8'; break;
+    case 'q8':
+      nextId = 'q9'; break;
+    case 'q9':
+      nextId = 'q10'; break;
+  }
+
+  if (nextId) {
+    historyStack.push(currentId);
+    current.classList.remove('active');
+    document.getElementById(nextId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function previousQuestion() {
+  const current = document.querySelector('.question.active');
+  const prevId = historyStack.pop();
+  if (prevId) {
+    current.classList.remove('active');
+    document.getElementById(prevId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+</script>
+</body>
+</html>
